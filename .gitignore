@@ -3,5 +3,6 @@ projects/cli/web-ui-dist/
 projects/cli/cli/
 projects/web-ui/dist/
 projects/web-ui/src/api
+projects/web-ui/.routify
 .env.local
 .env.*.local
