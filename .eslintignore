@@ -1,0 +1,4 @@
+node_modules/
+/projects/cli/web-ui-dist/
+/projects/web-ui/dist/
+/projects/web-ui/src/api/

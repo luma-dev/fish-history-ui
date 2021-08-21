@@ -1,0 +1,7 @@
+{
+  "name": "eslint-config-luma",
+  "version": "0.0.0",
+  "peerDependencies": {
+    "eslint": "*"
+  }
+}
