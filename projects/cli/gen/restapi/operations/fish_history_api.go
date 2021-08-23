@@ -45,6 +45,9 @@ func NewFishHistoryAPI(spec *loads.Document) *FishHistoryAPI {
 		ChunkHistoryHandler: ChunkHistoryHandlerFunc(func(params ChunkHistoryParams) middleware.Responder {
 			return middleware.NotImplemented("operation ChunkHistory has not yet been implemented")
 		}),
+		GetTimezoneHandler: GetTimezoneHandlerFunc(func(params GetTimezoneParams) middleware.Responder {
+			return middleware.NotImplemented("operation GetTimezone has not yet been implemented")
+		}),
 	}
 }
 
@@ -83,6 +86,8 @@ type FishHistoryAPI struct {
 
 	// ChunkHistoryHandler sets the operation handler for the chunk history operation
 	ChunkHistoryHandler ChunkHistoryHandler
+	// GetTimezoneHandler sets the operation handler for the get timezone operation
+	GetTimezoneHandler GetTimezoneHandler
 
 	// ServeError is called when an error is received, there is a default handler
 	// but you can set your own with this
@@ -162,6 +167,9 @@ func (o *FishHistoryAPI) Validate() error {
 
 	if o.ChunkHistoryHandler == nil {
 		unregistered = append(unregistered, "ChunkHistoryHandler")
+	}
+	if o.GetTimezoneHandler == nil {
+		unregistered = append(unregistered, "GetTimezoneHandler")
 	}
 
 	if len(unregistered) > 0 {
@@ -255,6 +263,10 @@ func (o *FishHistoryAPI) initHandlerCache() {
 		o.handlers["POST"] = make(map[string]http.Handler)
 	}
 	o.handlers["POST"]["/history/chunk"] = NewChunkHistory(o.context, o.ChunkHistoryHandler)
+	if o.handlers["GET"] == nil {
+		o.handlers["GET"] = make(map[string]http.Handler)
+	}
+	o.handlers["GET"]["/timezone"] = NewGetTimezone(o.context, o.GetTimezoneHandler)
 }
 
 // Serve creates a http handler to serve the API over HTTP

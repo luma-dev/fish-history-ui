@@ -82,5 +82,8 @@ describe('lastDayOfWeek', () => {
     expect(lastDayOfWeek(new Temporal.PlainDate(2000, 1, 1), 6).toString()).toBe(
       new Temporal.PlainDate(2000, 1, 7).toString(),
     );
+    expect(lastDayOfWeek(new Temporal.PlainDate(2021, 2, 28)).toString()).toBe(
+      new Temporal.PlainDate(2021, 3, 6).toString(),
+    );
   });
 });

@@ -1,0 +1,34 @@
+{
+  "monthDay": {
+    "full": "{month}/{day}",
+    "month": "{month}/",
+    "day": "{day}"
+  },
+  "yearMonth": {
+    "full": "{year}/{month}",
+    "year": "{year}/",
+    "month": "{month}"
+  },
+  "date": {
+    "full": "{year}/{month}/{day}/",
+    "year": "{year}/",
+    "month": "{month}/",
+    "day": "{day}"
+  },
+  "dayOfWeek": {
+    "short": {
+      "0": "Sun",
+      "1": "Mon",
+      "2": "Tue",
+      "3": "Wed",
+      "4": "Thu",
+      "5": "Fri",
+      "6": "Sat"
+    }
+  },
+  "loading": "Loading...",
+  "othersCount": "...Others {count} item(s)",
+  "itemCount": "{count} item(s)",
+  "goPrev": "prev",
+  "goNext": "next"
+}

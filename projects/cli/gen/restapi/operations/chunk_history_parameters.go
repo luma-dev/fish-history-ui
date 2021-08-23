@@ -15,7 +15,7 @@ import (
 	"github.com/go-openapi/runtime/middleware"
 	"github.com/go-openapi/validate"
 
-	"github.com/luma-dev/fishis/projects/cli/gen/models"
+	"github.com/luma-dev/fish-history-ui/projects/cli/gen/models"
 )
 
 // NewChunkHistoryParams creates a new ChunkHistoryParams object

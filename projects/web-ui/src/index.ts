@@ -1,9 +1,10 @@
 import 'windi.css';
 import './styles.css';
-import App from './App.svelte';
+import './i18n';
+import Root from './root.svelte';
 
-const app = new App({
+const root = new Root({
   target: document.body,
 });
 
-export default app;
+export default root;

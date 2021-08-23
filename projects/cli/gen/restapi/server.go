@@ -25,7 +25,7 @@ import (
 	flags "github.com/jessevdk/go-flags"
 	"golang.org/x/net/netutil"
 
-	"github.com/luma-dev/fishis/projects/cli/gen/restapi/operations"
+	"github.com/luma-dev/fish-history-ui/projects/cli/gen/restapi/operations"
 )
 
 const (

@@ -10,7 +10,7 @@ import (
 
 	"github.com/go-openapi/runtime"
 
-	"github.com/luma-dev/fishis/projects/cli/gen/models"
+	"github.com/luma-dev/fish-history-ui/projects/cli/gen/models"
 )
 
 // ChunkHistoryOKCode is the HTTP code returned for type ChunkHistoryOK

@@ -1,0 +1,16 @@
+name: commitlint
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  commitlint:
+    name: commitlint
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: wagoid/commitlint-github-action@v4

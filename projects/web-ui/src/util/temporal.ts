@@ -13,5 +13,5 @@ export const firstDayOfWeek = (date: Temporal.PlainDate, dayStart = 0): Temporal
 };
 
 export const lastDayOfWeek = (date: Temporal.PlainDate, dayStart = 0): Temporal.PlainDate => {
-  return date.add({ days: (6 + dayStart - date.dayOfWeek) % 7 });
+  return date.add({ days: (13 + dayStart - date.dayOfWeek) % 7 });
 };
