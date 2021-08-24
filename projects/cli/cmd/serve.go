@@ -17,6 +17,7 @@ import (
 	"github.com/go-openapi/strfmt"
 	"github.com/go-ptr/go-ptr/ptr"
 	"github.com/rs/cors"
+	"github.com/skratchdot/open-golang/open"
 	"github.com/spf13/cobra"
 
 	"github.com/luma-dev/fish-history-ui/projects/cli/filter"
@@ -88,21 +89,32 @@ var (
 	port     int
 	host     string
 	timezone string
-	open     bool
+	toOpen   bool
 	root     embed.FS
+	version  bool
 )
 
 func init() {
 	rootCmd.PersistentFlags().IntVarP(&port, "port", "p", 3210, "port number to serve (default 4310)")
 	rootCmd.PersistentFlags().StringVarP(&host, "host", "b", "", "interface to bind (default 0.0.0.0)")
 	rootCmd.PersistentFlags().StringVarP(&timezone, "timezone", "t", "", "Timezone used in calendar Web UI (e.g. UTC, Japan, Etc/GMT+3. default \"system\")")
-	rootCmd.PersistentFlags().BoolVarP(&open, "open", "", false, "Open browser.")
+	rootCmd.PersistentFlags().BoolVarP(&toOpen, "open", "", false, "Open browser.")
+	rootCmd.PersistentFlags().BoolVarP(&version, "version", "v", false, "Print version.")
 }
 
 var rootCmd = &cobra.Command{
 	Use:  "serve",
 	Long: "Serve Fish shell history visualization Web UI.",
 	Run: func(cmd *cobra.Command, args []string) {
+		if len(args) >= 2 {
+			log.Fatal(errors.New("not implemented to support multiple input files"))
+		}
+
+		if version {
+			fmt.Println(Version)
+			return
+		}
+
 		mux := http.NewServeMux()
 
 		if len(args) >= 2 {
@@ -164,6 +176,12 @@ var rootCmd = &cobra.Command{
 			}
 			http.ServeContent(w, r, stat.Name(), stat.ModTime(), file)
 		})
+
+		if toOpen {
+			if err := open.Run(fmt.Sprintf("http://localhost:%d", port)); err != nil {
+				fmt.Printf("Failed to open browsre: %s\n", err)
+			}
+		}
 
 		log.Printf("Listening on %s:%d...\n", host, port)
 		handler := cors.Default().Handler(mux)
