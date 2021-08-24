@@ -18,5 +18,5 @@ tar -xvf ./fish-history-ui.tar.gz
 sudo install fish-history-ui /usr/local/bin/
 rm ./fish-history-ui.tar.gz ./fish-history-ui
 
-./fish-history-ui --version
+fish-history-ui --version
 ```
