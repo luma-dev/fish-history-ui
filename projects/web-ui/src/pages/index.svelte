@@ -1,12 +1,10 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { goto } from '@roxi/routify';
-  import getYear from 'date-fns/getYear';
-  import getMonth from 'date-fns/getMonth';
+  import today from '../util/today';
 
   onMount(() => {
-    const now = Date.now();
-    $goto(`/calendar/${getYear(now)}/${getMonth(now)}`);
+    $goto(`/calendar/${$today.year}/${$today.month}`);
   });
 </script>
 
