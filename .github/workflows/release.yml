@@ -32,6 +32,18 @@ jobs:
         with:
           go-version: '^1.17'
       - run: make build
+      - name: Check version info is latest
+        working-directory: ./projects/cli
+        run: |
+          VERSION="$(go run main.go -v)"
+          GOT="refs/tags/v${VERSION}"
+          WANT="${{ github.ref }}"
+          if test "${GOT}" != "${WANT}";
+            echo "Version check fail."
+            echo "Got: ${Got}"
+            echo "Want: ${WANT}"
+            exit 1
+          fi
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v2
         with:
