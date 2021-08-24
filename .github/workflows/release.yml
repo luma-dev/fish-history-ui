@@ -38,7 +38,7 @@ jobs:
           VERSION="$(go run main.go -v)"
           GOT="refs/tags/v${VERSION}"
           WANT="${{ github.ref }}"
-          if test "${GOT}" != "${WANT}";
+          if test "${GOT}" != "${WANT}"; then
             echo "Version check fail."
             echo "Got: ${Got}"
             echo "Want: ${WANT}"
