@@ -17,7 +17,6 @@
     "test:jest": "jest"
   },
   "devDependencies": {
-    "@aspida/axios": "1.7.1",
     "@aspida/fetch": "1.7.1",
     "@jest/types": "27.0.6",
     "@js-temporal/polyfill": "0.2.0",
@@ -27,11 +26,9 @@
     "@types/debounce": "1.2.0",
     "@types/jest": "27.0.1",
     "aspida": "1.7.1",
-    "axios": "0.21.1",
     "carbon-components-svelte": "0.42.2",
     "carbon-icons-svelte": "10.36.0",
     "copy-to-clipboard": "3.3.1",
-    "date-fns": "2.22.1",
     "debounce": "1.2.1",
     "eslint-plugin-jest": "24.4.0",
     "eslint-plugin-json-format": "2.0.1",
@@ -43,7 +40,6 @@
     "svelte-hmr": "0.14.5",
     "svelte-i18n": "3.3.9",
     "svelte-preprocess": "4.7.4",
-    "svelte-virtual-scroll-list": "1.0.8",
     "ts-jest": "27.0.5",
     "tslib": "2.3.0",
     "typescript": "4.3.5",
