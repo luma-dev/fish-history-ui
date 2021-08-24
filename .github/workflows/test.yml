@@ -6,11 +6,17 @@ on:
       - main
     paths-ignore:
       - "README.md"
+      - "LICENSE"
       - ".husky/"
       - ".env.development"
   pull_request:
     branches:
       - main
+    paths-ignore:
+      - "README.md"
+      - "LICENSE"
+      - ".husky/"
+      - ".env.development"
 
 jobs:
   cache-pnpm:
