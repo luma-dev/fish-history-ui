@@ -7,16 +7,22 @@ on:
     paths-ignore:
       - "README.md"
       - "LICENSE"
+      - ".github/workflows/commitlint.yml"
+      - ".github/workflows/release.yml"
       - ".husky/"
       - ".env.development"
+      - "commitlint.config.cjs"
   pull_request:
     branches:
       - main
     paths-ignore:
       - "README.md"
       - "LICENSE"
+      - ".github/workflows/commitlint.yml"
+      - ".github/workflows/release.yml"
       - ".husky/"
       - ".env.development"
+      - "commitlint.config.cjs"
 
 jobs:
   cache-pnpm:
@@ -90,8 +96,3 @@ jobs:
         run: git diff --exit-code
       - run: go test ./...
         working-directory: ./projects/cli
-      # TODO
-      - run: ls -lFa .
-      - run: ls -lFa ./projects/
-      - run: ls -lFa ./projects/cli
-      - run: ls -lFa ./projects/cli/web-ui-dist

@@ -12,7 +12,7 @@ help:
 generate: generate/aspida generate/go_swagger
 
 .PHONY: build
-build: generate build/web-ui build/cli
+build: generate build/web-ui
 
 .PHONY: generate/aspida
 generate/aspida: swagger/swagger.yml
@@ -31,7 +31,3 @@ build/web-ui:
 	pnpm --filter=./projects/web-ui build
 	rm -rf ./projects/cli/web-ui-dist
 	cp -r ./projects/web-ui/dist ./projects/cli/web-ui-dist
-
-.PHONY: build/cli
-build/cli:
-	cd ./projects/cli && go build
