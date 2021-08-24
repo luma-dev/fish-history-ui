@@ -6,8 +6,8 @@ import (
 
 	"github.com/go-ptr/go-ptr/ptr"
 	"github.com/google/go-cmp/cmp"
-	"github.com/luma-dev/fishis/projects/cli/gen/models"
-	iptr "github.com/luma-dev/fishis/projects/cli/internal/ptr"
+	"github.com/luma-dev/fish-history-ui/projects/cli/gen/models"
+	iptr "github.com/luma-dev/fish-history-ui/projects/cli/internal/ptr"
 )
 
 func TestChunkHistory(t *testing.T) {
@@ -92,7 +92,7 @@ func TestChunkHistory(t *testing.T) {
 				*h4(),
 				*h5(),
 			}, models.TimeUnitDay, -1, &models.TimeRangeFilter{
-				From: iptr.NewTimestamp(1262476800),
+				From: iptr.NewTimestampNullable(1262476800),
 			}),
 			want: models.HistoryBlocks{
 				Unit: iptr.NewTimeUnit(models.TimeUnitDay),

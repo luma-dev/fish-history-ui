@@ -5,8 +5,8 @@ import (
 	"strconv"
 
 	"github.com/go-ptr/go-ptr/ptr"
-	"github.com/luma-dev/fishis/projects/cli/gen/models"
-	iptr "github.com/luma-dev/fishis/projects/cli/internal/ptr"
+	"github.com/luma-dev/fish-history-ui/projects/cli/gen/models"
+	iptr "github.com/luma-dev/fish-history-ui/projects/cli/internal/ptr"
 )
 
 func ParseHistories(in []byte) (h []models.History) {

@@ -1,11 +1,11 @@
 {
   "private": true,
-  "author": "Luma<world@luma.email>",
   "license": "MIT",
+  "author": "Luma<world@luma.email>",
   "type": "module",
   "scripts": {
     "lint": "run-s lint:*",
-    "lint:eslint": "eslint . --ext .js,.cjs,.mjs,.ts,.tsx,.svelte",
+    "lint:eslint": "eslint . --ext .js,.cjs,.mjs,.ts,.tsx,.svelte,.json",
     "lint:prettier": "prettier '**/*.{svelte,html}' --loglevel error --plugin-search-dir=. --check",
     "lint-quiet": "run-s lint-quiet:*",
     "lint-quiet:eslint": "pnpm run lint:eslint -- --quiet",
@@ -19,6 +19,7 @@
   "devDependencies": {
     "@commitlint/cli": "13.1.0",
     "@commitlint/config-conventional": "13.1.0",
+    "@luma-dev/openapi2aspida": "0.1.0",
     "commitlint": "13.1.0",
     "esbuild": "0.12.22",
     "eslint": "7.32.0",
@@ -31,7 +32,6 @@
     "eslint-plugin-svelte3": "3.2.0",
     "husky": "7.0.1",
     "npm-run-all": "4.1.5",
-    "openapi2aspida": "0.16.5",
     "prettier": "2.3.2",
     "prettier-plugin-svelte": "2.3.1"
   }

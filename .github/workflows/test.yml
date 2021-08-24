@@ -1,0 +1,91 @@
+name: test
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "README.md"
+      - ".husky/"
+      - ".env.development"
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  cache-pnpm:
+    name: Cache Pnpm
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Cache pnpm modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6.13.0
+          run_install: |
+            - recursive: true
+              args: [--frozen-lockfile, --prefer-offline]
+  test-node:
+    name: Test Node
+    needs: cache-pnpm
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Cache pnpm modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6.13.0
+          run_install: true
+      - run: make generate/aspida
+      - name: Test generate/aspida
+        run: git diff --exit-code
+      - name: Lint
+        run: pnpm lint
+      - name: Run tests
+        run: pnpm test
+      - name: Build Web UI
+        run: make build/web-ui
+      - uses: actions/upload-artifact@v2
+        with:
+          name: built-web-ui
+          path: |
+            projects/cli/web-ui-dist
+  test-go:
+    needs: test-node
+    name: Test Go
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-go@v2
+        with:
+          go-version: '^1.17'
+      - uses: actions/download-artifact@v2
+        with:
+          name: built-web-ui
+          path: projects/cli/web-ui-dist
+      - name: Generate
+        run: make generate/go_swagger
+      - name: Test generate/go_swagger
+        run: git diff --exit-code
+      - run: go test ./...
+        working-directory: ./projects/cli
+      # TODO
+      - run: ls -lFa .
+      - run: ls -lFa ./projects/
+      - run: ls -lFa ./projects/cli
+      - run: ls -lFa ./projects/cli/web-ui-dist

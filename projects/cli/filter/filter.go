@@ -5,8 +5,8 @@ import (
 	"time"
 
 	"github.com/go-ptr/go-ptr/ptr"
-	"github.com/luma-dev/fishis/projects/cli/gen/models"
-	iptr "github.com/luma-dev/fishis/projects/cli/internal/ptr"
+	"github.com/luma-dev/fish-history-ui/projects/cli/gen/models"
+	iptr "github.com/luma-dev/fish-history-ui/projects/cli/internal/ptr"
 )
 
 func ChunkHistory(h []models.History, unit models.TimeUnit, limit int64, filter *models.TimeRangeFilter) models.HistoryBlocks {

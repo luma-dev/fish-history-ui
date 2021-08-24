@@ -22,6 +22,18 @@ paths:
             $ref: "#/definitions/HistoryBlocks"
         400:
           description: 'Bad request.'
+  /timezone:
+    get:
+      produces:
+        - application/json
+      operationId: getTimezone
+      responses:
+        200:
+          description: 'Timezone used in server.'
+          schema:
+            $ref: "#/definitions/TimezoneResponse"
+        400:
+          description: 'Bad request.'
 
 definitions:
   TimeUnit:
@@ -108,3 +120,14 @@ definitions:
         minItems: 1
         items:
           type: string
+  TimezoneResponse:
+    type: object
+    required:
+      - name
+      - offset
+    properties:
+      name:
+        type: string
+      offset:
+        type: integer
+        description: "Timezone offset in seconds."

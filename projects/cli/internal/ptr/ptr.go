@@ -1,10 +1,14 @@
 package ptr
 
 import (
-	"github.com/luma-dev/fishis/projects/cli/gen/models"
+	"github.com/luma-dev/fish-history-ui/projects/cli/gen/models"
 )
 
 func NewTimestamp(v models.Timestamp) *models.Timestamp {
+	return &v
+}
+
+func NewTimestampNullable(v models.TimestampNullable) *models.TimestampNullable {
 	return &v
 }
 

@@ -10,7 +10,7 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/runtime/middleware"
 
-	"github.com/luma-dev/fishis/projects/cli/gen/restapi/operations"
+	"github.com/luma-dev/fish-history-ui/projects/cli/gen/restapi/operations"
 )
 
 //go:generate swagger generate server --target ../../gen --name FishHistory --spec ../../../../swagger/swagger.yml --principal interface{} --exclude-main
@@ -40,6 +40,11 @@ func configureAPI(api *operations.FishHistoryAPI) http.Handler {
 	if api.ChunkHistoryHandler == nil {
 		api.ChunkHistoryHandler = operations.ChunkHistoryHandlerFunc(func(params operations.ChunkHistoryParams) middleware.Responder {
 			return middleware.NotImplemented("operation operations.ChunkHistory has not yet been implemented")
+		})
+	}
+	if api.GetTimezoneHandler == nil {
+		api.GetTimezoneHandler = operations.GetTimezoneHandlerFunc(func(params operations.GetTimezoneParams) middleware.Responder {
+			return middleware.NotImplemented("operation operations.GetTimezone has not yet been implemented")
 		})
 	}
 

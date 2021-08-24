@@ -1,0 +1,34 @@
+{
+  "monthDay": {
+    "full": "{month}月{day}日",
+    "month": "{month}月",
+    "day": "{day}日"
+  },
+  "yearMonth": {
+    "full": "{year}年{month}月",
+    "year": "{year}年",
+    "month": "{month}月"
+  },
+  "date": {
+    "full": "{year}年{month}月{day}日",
+    "year": "{year}年",
+    "month": "{month}月",
+    "day": "{day}日"
+  },
+  "dayOfWeek": {
+    "short": {
+      "0": "日",
+      "1": "月",
+      "2": "火",
+      "3": "水",
+      "4": "木",
+      "5": "金",
+      "6": "土"
+    }
+  },
+  "loading": "読込中...",
+  "othersCount": "...他 {count} 件",
+  "itemCount": "{count} 件",
+  "goPrev": "前へ",
+  "goNext": "次へ"
+}
