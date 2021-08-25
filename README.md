@@ -11,7 +11,7 @@ Check [releases](https://github.com/luma-dev/fish-history-ui/releases) and downl
 ### Linux Install Example
 
 ```bash
-VERSION=1.0.0
+VERSION=1.0.1
 ARCH=$(arch)
 wget -O fish-history-ui.tar.gz "https://github.com/luma-dev/fish-history-ui/releases/download/v${VERSION}/fish-history-ui_${VERSION}_Linux_${ARCH}.tar.gz"
 tar -xvf ./fish-history-ui.tar.gz
