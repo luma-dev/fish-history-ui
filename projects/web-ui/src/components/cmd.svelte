@@ -1,11 +1,11 @@
 <script lang="ts">
   import { Tooltip as Tooltip0 } from 'carbon-components-svelte';
-  import copy from 'copy-to-clipboard';
-  import debounce from 'debounce';
-  // Issue: https://github.com/carbon-design-system/sveld/issues/40
+  import * as copy from 'copy-to-clipboard';
+  import * as debounce from 'debounce';
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Issue: https://github.com/carbon-design-system/sveld/issues/40
   const Tooltip = Tooltip0 as any;
   export let code: string;
-  export let maxLength: number = Infinity;
+  export let maxLength = Infinity;
   $: open = false;
   const closeDebounced = debounce(() => {
     open = false;

@@ -1,11 +1,5 @@
 {
-  "extends": "@tsconfig/svelte/tsconfig.json",
-  "compilerOptions": {
-    "strict": true,
-    "module": "ES2020",
-    "importsNotUsedAsValues": "remove",
-    "resolveJsonModule": true
-  },
+  "extends": "@luma-dev/tsconfig-svelte/tsconfig.json",
   "include": [
     "src/**/*"
   ],

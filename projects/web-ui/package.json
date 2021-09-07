@@ -20,9 +20,10 @@
     "@aspida/fetch": "1.7.1",
     "@jest/types": "27.0.6",
     "@js-temporal/polyfill": "0.2.0",
+    "@luma-dev/eslint-config-svelte": "0.7.1",
+    "@luma-dev/tsconfig-svelte": "0.1.0",
     "@roxi/routify": "2.18.3",
     "@sveltejs/vite-plugin-svelte": "1.0.0-next.15",
-    "@tsconfig/svelte": "2.0.1",
     "@types/debounce": "1.2.0",
     "@types/jest": "27.0.1",
     "aspida": "1.7.1",
@@ -30,11 +31,7 @@
     "carbon-icons-svelte": "10.36.0",
     "copy-to-clipboard": "3.3.1",
     "debounce": "1.2.1",
-    "eslint-plugin-jest": "24.4.0",
-    "eslint-plugin-json-format": "2.0.1",
     "jest": "27.0.6",
-    "prettier": "2.3.2",
-    "prettier-plugin-svelte": "2.3.1",
     "svelte": "3.38.3",
     "svelte-check": "2.2.4",
     "svelte-hmr": "0.14.5",
@@ -42,12 +39,13 @@
     "svelte-preprocess": "4.7.4",
     "ts-jest": "27.0.5",
     "tslib": "2.3.0",
-    "typescript": "4.3.5",
     "vite": "2.4.4",
     "vite-plugin-windicss": "1.2.4",
     "windicss": "3.1.4"
   },
   "engines": {
-    "pnpm": ">=6"
+    "npm": "forbidden, use npm",
+    "pnpm": ">=6",
+    "yarn": "forbidden, use npm"
   }
 }

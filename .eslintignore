@@ -1,4 +1,14 @@
+.DS_Store
+.vscode/
+.idea/
 node_modules/
 /projects/cli/web-ui-dist/
+/projects/cli/cli
 /projects/web-ui/dist/
+/projects/web-ui/dist-ssr/
 /projects/web-ui/src/api/
+/projects/web-ui/.routify/
+.pnpm-debug.log
+*.local
+/cli
+dist/

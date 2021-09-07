@@ -33,7 +33,7 @@
           },
         },
       })
-      .then(r => {
+      .then((r) => {
         if (r.blocks) {
           table = pad(r.blocks);
         }
@@ -41,7 +41,7 @@
   };
 
   $: {
-    refetch();
+    void refetch();
   }
   $: onPrev = () => {
     $goto(`/calendar/${month === 1 ? year - 1 : year}/${month === 1 ? 12 : month - 1}`);
@@ -57,7 +57,7 @@
     for (let now = spanFrom; Temporal.PlainDateTime.compare(now, spanTo) <= 0; now = now.add({ days: 1 })) {
       if (i < blocks.length && blocks[i].from <= now.toZonedDateTime('UTC').epochSeconds) {
         inWeek.push(blocks[i]);
-        i++;
+        i += 1;
       } else {
         inWeek.push({
           count: 0,
@@ -100,7 +100,7 @@
 
 <App on:prev={onPrev} on:next={onNext}>
   <div slot="title">
-    <time class={'flex border-b-4 border-solid ' + (isThisMonth ? 'border-blue-200' : 'border-transparent')}>
+    <time class={`flex border-b-4 border-solid ${isThisMonth ? 'border-blue-200' : 'border-transparent'}`}>
       {$_('yearMonth.full', { values: { year, month } })}
     </time>
   </div>
@@ -118,7 +118,7 @@
               class={inMonth(g(column.from)) ? 'column' : 'column out'}
               on:click={() => $goto(`/calendar/${g(column.from).year}/${g(column.from).month}/${g(column.from).day}`)}
             >
-              <time class={'flex justify-center ' + (isToday(g(column.from)) ? 'bg-blue-200' : '')}>
+              <time class={`flex justify-center ${isToday(g(column.from)) ? 'bg-blue-200' : ''}`}>
                 {#if g(column.from).day === 1}
                   <span>
                     {$_('monthDay.month', { values: { month: g(column.from).month } })}

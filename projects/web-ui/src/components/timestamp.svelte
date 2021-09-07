@@ -1,6 +1,6 @@
 <script lang="ts">
   import { _ } from 'svelte-i18n';
-  import { Temporal } from '@js-temporal/polyfill';
+  import type { Temporal } from '@js-temporal/polyfill';
   import offset from '../util/timezone-offset-seconds';
   import { TooltipDefinition } from 'carbon-components-svelte';
   import type { TooltipDefinitionProps } from 'carbon-components-svelte/types/TooltipDefinition/TooltipDefinition';

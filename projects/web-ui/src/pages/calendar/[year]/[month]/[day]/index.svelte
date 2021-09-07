@@ -1,12 +1,11 @@
 <script lang="ts">
   import { _ } from 'svelte-i18n';
   import { Temporal } from '@js-temporal/polyfill';
-  import { url } from '@roxi/routify';
+  import { url, params, goto } from '@roxi/routify';
   import App from '../../../../../components/app.svelte';
   import Cmd from '../../../../../components/cmd.svelte';
   import api from '../../../../../util/api';
   import today from '../../../../../util/today';
-  import { params, goto } from '@roxi/routify';
   import type { History } from '../../../../../api/@types';
   import Timestamp from '../../../../../components/timestamp.svelte';
 
@@ -30,13 +29,13 @@
           },
         },
       })
-      .then(r => {
+      .then((r) => {
         histories = r.blocks?.[0]?.histories ?? [];
       });
   };
 
   $: {
-    refetch();
+    void refetch();
   }
   $: onPrev = () => {
     const prevDate = date.subtract({ days: 1 });
@@ -58,7 +57,7 @@
 
 <App on:prev={onPrev} on:next={onNext}>
   <div slot="title">
-    <time class={'flex border-b-4 border-solid ' + (isToday ? 'border-blue-200' : 'border-transparent')}>
+    <time class={`flex border-b-4 border-solid ${isToday ? 'border-blue-200' : 'border-transparent'}`}>
       <span>
         {$_('date.year', { values: { year } })}
       </span>

@@ -8,8 +8,7 @@ node_modules/
 /projects/web-ui/dist-ssr/
 /projects/web-ui/src/api/
 /projects/web-ui/.routify/
-.env.local
-.env.*.local
+.pnpm-debug.log
+*.local
 /cli
-
 dist/

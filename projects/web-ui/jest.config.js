@@ -1,4 +1,4 @@
-/** @type {import("@jest/types").Config} */
+/** @type {import('@jest/types').Config} */
 const config = {
   preset: 'ts-jest',
   testEnvironment: 'node',

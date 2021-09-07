@@ -5,11 +5,11 @@
   "type": "module",
   "scripts": {
     "lint": "run-s lint:*",
-    "lint:eslint": "eslint . --ext .js,.cjs,.mjs,.ts,.tsx,.svelte,.json",
-    "lint:prettier": "prettier '**/*.{svelte,html}' --loglevel error --plugin-search-dir=. --check",
+    "lint:eslint": "eslint \"**/*.svelte\" \"**/*.{js,cjs,mjs,ts,tsx,json}\"",
+    "lint:prettier": "prettier \"**/*.{html,svelte}\" --list-different",
     "lint-quiet": "run-s lint-quiet:*",
     "lint-quiet:eslint": "pnpm run lint:eslint -- --quiet",
-    "lint-quiet:prettier": "pnpm run lint:prettier",
+    "lint-quiet:prettier": "pnpm run lint:prettier -- --loglevel error",
     "lint-fix": "run-s lint-fix:*",
     "lint-fix:eslint": "pnpm run lint:eslint -- --fix",
     "lint-fix:prettier": "pnpm run lint:prettier -- --write",
@@ -19,20 +19,24 @@
   "devDependencies": {
     "@commitlint/cli": "13.1.0",
     "@commitlint/config-conventional": "13.1.0",
+    "@luma-dev/eslint-config-base": "0.3.0",
+    "@luma-dev/eslint-config-jest": "0.2.1",
     "@luma-dev/openapi2aspida": "0.1.0",
+    "@luma-dev/prettier-config": "0.1.0",
+    "@luma-dev/tsconfig-base": "0.1.0",
     "commitlint": "13.1.0",
     "esbuild": "0.12.22",
     "eslint": "7.32.0",
-    "eslint-config-airbnb-base": "14.2.1",
-    "eslint-config-airbnb-base-typescript-prettier": "4.1.0",
-    "eslint-config-luma": "workspace:^0.0.0",
-    "eslint-config-prettier": "8.3.0",
-    "eslint-plugin-eslint-comments": "3.2.0",
-    "eslint-plugin-prettier": "3.4.0",
-    "eslint-plugin-svelte3": "3.2.0",
     "husky": "7.0.1",
     "npm-run-all": "4.1.5",
     "prettier": "2.3.2",
-    "prettier-plugin-svelte": "2.3.1"
+    "prettier-plugin-svelte": "2.3.1",
+    "svelte": "3.38.3",
+    "typescript": "~4.3.5"
+  },
+  "engines": {
+    "npm": "forbidden, use npm",
+    "pnpm": ">=6",
+    "yarn": "forbidden, use npm"
   }
 }

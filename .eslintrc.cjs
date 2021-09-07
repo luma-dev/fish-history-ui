@@ -1,4 +1,7 @@
-/** @type {import("eslint").Linter.Config} */
+const configureBase = require('@luma-dev/eslint-config-base/configure');
+
+/** @type {import('eslint').Linter.Config} */
 module.exports = {
-  extends: ['luma'],
+  extends: ['@luma-dev/base', '@luma-dev/jest'],
+  overrides: [...configureBase(__dirname)],
 };
