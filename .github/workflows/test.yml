@@ -66,6 +66,8 @@ jobs:
       - run: make generate/aspida
       - name: Test generate/aspida
         run: git diff --exit-code
+      - name: Build Routify
+        run: pnpm -r run build:routify
       - name: Lint
         run: pnpm lint
       - name: Run tests
