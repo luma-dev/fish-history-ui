@@ -116,7 +116,9 @@
           {#each row as column}
             <div
               class={inMonth(g(column.from)) ? 'column' : 'column out'}
-              on:click={() => $goto(`/calendar/${g(column.from).year}/${g(column.from).month}/${g(column.from).day}`)}
+              on:click={() => {
+                $goto(`/calendar/${g(column.from).year}/${g(column.from).month}/${g(column.from).day}`);
+              }}
             >
               <time class={`flex justify-center ${isToday(g(column.from)) ? 'bg-blue-200' : ''}`}>
                 {#if g(column.from).day === 1}
